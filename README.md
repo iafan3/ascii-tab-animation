@@ -1,6 +1,6 @@
-# ASCII Tab Background for Zen + Sine
+# ASCII Tab Background Animation for Zen Browser
 
-Interactive ASCII background for a transparent Zen Browser vertical tab bar. It reacts to mouse drag and click, with subtle blur and varied white glyph opacity:
+Interactive ASCII background for a transparent Zen Browser vertical tab bar. It reacts to mouse drag and click.
 
 - Drag inside the vertical tab bar to paint brighter ASCII trails.
 - Click inside the vertical tab bar to emit expanding ASCII ripples.
@@ -19,18 +19,6 @@ ascii-tab-background-sine-mod/
    └─ index.html
 ```
 
-## Local demo
-
-Open `demo/index.html` in any modern browser. Click and drag on the left mock sidebar.
-
-## Sine usage
-
-1. Put this folder in a GitHub repository.
-2. In Zen Browser, open Sine Mods.
-3. Enable JS from unofficial sources if Sine asks for it.
-4. Paste the repository URL into Sine’s install-from-repo box.
-5. Enable the mod and restart Zen or clear startup cache if Sine asks.
-
 ## Tuning
 
 Edit the top of `ascii-tab-background.uc.js`:
@@ -47,13 +35,3 @@ Edit `chrome.css`:
 - `--ascii-tab-bg-opacity`: overall opacity.
 - `--ascii-tab-bg-blur`: softens the glyph field slightly.
 - `--ascii-tab-bg-dim`: subtle dark veil behind the tab controls.
-
-## Fallback selector note
-
-The script tries these host selectors in order:
-
-```js
-["#TabsToolbar", ".zen-workspace-tabs-section", "#navigator-toolbox"]
-```
-
-If your Zen theme restructures the sidebar, inspect the browser chrome and replace `targetSelectors` with the actual vertical tab container selector.
