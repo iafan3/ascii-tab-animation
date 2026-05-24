@@ -1,0 +1,23 @@
+{
+  "id": "ascii-tab-background",
+  "name": "ASCII Tab Background",
+  "description": "Interactive ASCII background for Zen Browser's vertical tab sidebar. Reacts to mouse drag and click.",
+  "version": "1.1.0",
+  "author": "Generated clean-room implementation",
+  "homepage": "https://github.com/yourname/ascii-tab-background",
+  "readme": "https://github.com/yourname/ascii-tab-background/blob/main/README.md",
+  "createdAt": "2026-05-24",
+  "updatedAt": "2026-05-24",
+  "style": {
+    "chrome": "chrome.css"
+  },
+  "scripts": {
+    "ascii-tab-background.uc.js": {
+      "name": "ASCII Tab Background Engine",
+      "description": "Draws and animates an interactive ASCII canvas behind Zen's vertical tab bar.",
+      "include": ["chrome://browser/content/browser.xhtml"]
+    }
+  },
+  "tags": ["Javascript", "Theme", "Tabs", "Transparent"],
+  "fork": ["zen"]
+}

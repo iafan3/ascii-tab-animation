@@ -1,0 +1,64 @@
+/* ASCII Tab Background — Sine / Zen chrome CSS
+   The JS inserts <canvas id="ascii-tab-bg-canvas"> into the first matching sidebar host. */
+
+:root {
+  --ascii-tab-bg-opacity: 0.56;
+  --ascii-tab-bg-dim: rgba(0, 0, 0, 0.08);
+  --ascii-tab-bg-blur: 0.55px;
+}
+
+/* Keep the Zen side UI transparent enough for the canvas to show through. */
+#navigator-toolbox,
+#TabsToolbar,
+#zen-sidebar,
+#zen-sidebar-top-buttons,
+#zen-workspaces-button,
+.zen-workspace-tabs-section,
+.zen-workspace-normal-tabs-section,
+.zen-workspace-pinned-tabs-section {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Host support: the script marks the chosen container with this attr. */
+[ascii-tab-bg-host="true"] {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+}
+
+#ascii-tab-bg-canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  opacity: var(--ascii-tab-bg-opacity) !important;
+  mix-blend-mode: screen !important;
+  filter: blur(var(--ascii-tab-bg-blur)) !important;
+  transform: scale(1.006) !important;
+  transform-origin: center !important;
+}
+
+/* Subtle dark veil so glyphs remain readable against transparent/acrylic setups. */
+[ascii-tab-bg-host="true"]::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background: radial-gradient(circle at 50% 10%, transparent 0%, var(--ascii-tab-bg-dim) 75%) !important;
+}
+
+/* Keep actual Zen controls above the background. */
+[ascii-tab-bg-host="true"] > :not(#ascii-tab-bg-canvas) {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #ascii-tab-bg-canvas {
+    opacity: 0.26 !important;
+  }
+}
