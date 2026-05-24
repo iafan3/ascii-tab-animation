@@ -79,6 +79,25 @@
       host.prepend(canvas);
     }
 
+    Object.assign(canvas.style, {
+      position: "absolute",
+      inset: "0",
+      pointerEvents: "none",
+      zIndex: "0",
+      background: "transparent",
+      backgroundColor: "transparent",
+      opacity: "1",
+      mixBlendMode: "normal",
+      filter: "none",
+      backdropFilter: "none",
+    });
+
+      if (getComputedStyle(host).position === "static") {
+      host.style.position = "relative";
+    }
+
+    host.style.overflow = "hidden";
+
     ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
